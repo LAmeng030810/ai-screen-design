@@ -2,6 +2,8 @@
 import ToolbarLeft from '@/editor/toolbar/ToolbarLeft.vue'
 import ToolbarRight from '@/editor/toolbar/ToolbarRight.vue'
 import { useEditorStore } from '@/stores/editor.ts'
+import MaterialPanel from '@/editor/panels/material/index.vue'
+import LayerPanel from '@/editor/panels/layer/index.vue'
 
 defineOptions({
   name: 'ScreenEditor',
@@ -23,13 +25,12 @@ const propertyWidth = computed(() => (editorStore.panelVisible.property ? '260px
     </header>
     <main class="h-[calc(100%-56px)] flex">
       <!--   物料   -->
-      <aside class="material overflow-hidden transition-all" :style="{ width: materialWidth }">
-        物料
-      </aside>
+      <MaterialPanel
+        class="material overflow-hidden transition-all"
+        :style="{ width: materialWidth }"
+      />
       <!--   图层   -->
-      <aside class="layer overflow-hidden transition-all" :style="{ width: layerWidth }">
-        图层
-      </aside>
+      <LayerPanel class="layer overflow-hidden transition-all" :style="{ width: layerWidth }" />
       <!--   画布   -->
       <div class="canvas flex-1">画布</div>
       <!--   属性   -->
@@ -42,8 +43,7 @@ const propertyWidth = computed(() => (editorStore.panelVisible.property ? '260px
 
 <style scoped lang="scss">
 .editor {
-  --border-color: #334155;
-  background: #1b2436;
+  background: var(--bg-color);
   .header {
     border-bottom: 1px solid var(--border-color);
   }

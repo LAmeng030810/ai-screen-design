@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
 import { useEditorStore } from '@/stores/editor.ts'
 
 defineOptions({
@@ -50,7 +49,7 @@ const { panelVisible } = useEditorStore()
     cursor: pointer;
 
     &.active {
-      background-color: #3e60a9;
+      background-color: #06c6c6;
     }
   }
 }
